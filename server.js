@@ -28,8 +28,9 @@ app.post('/updateLink', async (req, res) => {
   try {
     // Launch Puppeteer with no-sandbox for Render
     const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+        headless: true,
+        executablePath: '/usr/bin/chromium-browser',
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
